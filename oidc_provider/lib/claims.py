@@ -132,7 +132,7 @@ class StandardScopeClaims(ScopeClaims):
             'family_name': (self.userinfo.get('family_name') or
                             getattr(self.user, 'last_name', None)),
             'middle_name': self.userinfo.get('middle_name'),
-            'nickname': self.userinfo.get('nickname') or getattr(self.user, 'username', None),
+            'nickname': self.userinfo.get('nickname'),
             'preferred_username': self.userinfo.get('preferred_username'),
             'profile': self.userinfo.get('profile'),
             'picture': self.userinfo.get('picture'),
