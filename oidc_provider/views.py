@@ -9,7 +9,7 @@ except ImportError:
 from Cryptodome.PublicKey import RSA
 from django.contrib.auth.views import (
     redirect_to_login,
-    logout,
+    LogoutView,
 )
 try:
     from django.urls import reverse
