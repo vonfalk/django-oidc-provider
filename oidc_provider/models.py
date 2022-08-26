@@ -32,6 +32,7 @@ JWT_ALGS = [
 
 class Client(models.Model):
 
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, default='', verbose_name=_(u'Name'))
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, verbose_name=_(u'Owner'), blank=True,
@@ -157,6 +158,7 @@ class BaseCodeTokenModel(models.Model):
 
 class Code(BaseCodeTokenModel):
 
+    id = models.AutoField(primary_key=True)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, verbose_name=_(u'User'), on_delete=models.CASCADE)
     code = models.CharField(max_length=255, unique=True, verbose_name=_(u'Code'))
@@ -173,6 +175,7 @@ class Code(BaseCodeTokenModel):
 
 class Token(BaseCodeTokenModel):
 
+    id = models.AutoField(primary_key=True)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, null=True, verbose_name=_(u'User'), on_delete=models.CASCADE)
     access_token = models.CharField(max_length=255, unique=True, verbose_name=_(u'Access Token'))
@@ -206,6 +209,7 @@ class Token(BaseCodeTokenModel):
 
 class UserConsent(BaseCodeTokenModel):
 
+    id = models.AutoField(primary_key=True)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, verbose_name=_(u'User'), on_delete=models.CASCADE)
     date_given = models.DateTimeField(verbose_name=_(u'Date Given'))
@@ -216,6 +220,7 @@ class UserConsent(BaseCodeTokenModel):
 
 class RSAKey(models.Model):
 
+    id = models.AutoField(primary_key=True)
     key = models.TextField(
         verbose_name=_(u'Key'), help_text=_(u'Paste your private RSA Key here.'))
 
